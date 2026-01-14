@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+    <generalInfo>
+        <name>РЖД-путь</name>
+        <description>
+            Приложение для управления поездами, типами вагонов и маршрутами,
+            разработанное с использованием фреймворка Qt и базы данных PostgreSQL.
+        </description>
+        <technology>
+            <language>C++</language>
+            <framework>Qt 6 (Qt Quick, QML)</framework>
+            <database>PostgreSQL</database>
+        </technology>
+        <purpose>
+            Программа предназначена для просмотра, добавления, редактирования
+            и удаления данных из базы данных железнодорожных перевозок.
+        </purpose>
+    </generalInfo>
+
+    <database>
+        <tables>
+            <table>
+                <name>train</name>
+                <description>Таблица поездов</description>
+                <fields>
+                    <field name="id_train" type="int">Уникальный идентификатор поезда</field>
+                    <field name="name_train" type="varchar">Название поезда</field>
+                    <field name="status_train" type="varchar">Статус поезда</field>
+                </fields>
+            </table>
+
+            <table>
+                <name>type_wagon</name>
+                <description>Таблица типов вагонов</description>
+                <fields>
+                    <field name="id_type_wagon" type="int">Уникальный идентификатор типа вагона</field>
+                    <field name="name_type_wagon" type="varchar">Название типа вагона</field>
+                    <field name="capacity" type="int">Вместимость вагона</field>
+                </fields>
+            </table>
+
+            <table>
+                <name>route</name>
+                <description>Таблица маршрутов</description>
+                <fields>
+                    <field name="id_route" type="int">Уникальный идентификатор маршрута</field>
+                    <field name="from_point" type="varchar">Пункт отправления</field>
+                    <field name="to_point" type="varchar">Пункт назначения</field>
+                    <field name="status_route" type="varchar">Статус маршрута</field>
+                    <field name="price" type="numeric">Стоимость маршрута</field>
+                </fields>
+            </table>
+        </tables>
+    </database>
+
+    <classes>
+        <class>
+            <name>TrainModel</name>
+            <description>Класс для работы с таблицей поездов</description>
+            <methods>
+                <method name="getAll">Получение всех поездов</method>
+                <method name="add">Добавление поезда</method>
+                <method name="update">Редактирование поезда</method>
+                <method name="remove">Удаление поезда</method>
+            </methods>
+        </class>
+
+        <class>
+            <name>TypeWagonModel</name>
+            <description>Класс для работы с типами вагонов</description>
+            <methods>
+                <method name="getAll">Получение всех типов вагонов</method>
+                <method name="add">Добавление типа вагона</method>
+                <method name="update">Редактирование типа вагона</method>
+                <method name="remove">Удаление типа вагона</method>
+            </methods>
+        </class>
+
+        <class>
+            <name>RouteModel</name>
+            <description>Класс для работы с маршрутами</description>
+            <methods>
+                <method name="getAll">Получение всех маршрутов</method>
+                <method name="add">Добавление маршрута</method>
+                <method name="update">Редактирование маршрута</method>
+                <method name="remove">Удаление маршрута</method>
+            </methods>
+        </class>
+    </classes>
+
+    <ui>
+        <description>
+            Пользовательский интерфейс реализован с использованием QML и содержит
+            вкладки для управления поездами, типами вагонов и маршрутами.
+        </description>
+        <features>
+            <feature>Интуитивно-понятный интерфейс</feature>
+            <feature>Проверка вводимых данных</feature>
+            <feature>Диалоговые окна редактирования</feature>
+            <feature>Работа с базой данных в реальном времени</feature>
+        </features>
+    </ui>
+</project>

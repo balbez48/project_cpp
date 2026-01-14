@@ -1,0 +1,20 @@
+# Qt / CMake
+build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+*.user
+*.autosave
+
+# Qt Creator
+*.pro.user*
+*.qmlc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Compilers
+*.o
+*.obj
+*.exe
